@@ -9,10 +9,10 @@ import random
 
 def test_odds():
 
-    ninety_five_number = random.uniform(0,10)
+    ninety_five_number = random.randrange(0,10)
     if ninety_five_number < 5:
         return "punish"
-    elif ninety_five_number > 8.9:
+    elif ninety_five_number == 10:
         return "keep_trying"
     else:
         return "good_job"
