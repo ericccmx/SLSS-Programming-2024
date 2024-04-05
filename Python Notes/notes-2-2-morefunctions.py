@@ -41,3 +41,16 @@ def biggest_of_three (num_1, num_2, num_3):
         print(f"The biggest number is {num_3}.")
 
 print(biggest_of_three(1, 4, 3))
+
+def pyramid (base_width: int):
+    """Prints a pyramid of stars with given base
+    
+    Params:
+        base_width: width of base of pyramid"""
+    
+    for i in range (base_width):
+        print("*" * (i +1))
+
+pyramid(1)
+pyramid(5)
+pyramid(20)
