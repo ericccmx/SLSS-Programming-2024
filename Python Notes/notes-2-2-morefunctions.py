@@ -49,7 +49,7 @@ def pyramid (base_width: int):
         base_width: width of base of pyramid"""
     
     for i in range (base_width):
-        print("*" * (i +1))
+        print(stars(i +1))
 
 pyramid(1)
 pyramid(5)
