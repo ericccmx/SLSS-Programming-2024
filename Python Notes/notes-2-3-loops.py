@@ -39,3 +39,8 @@ while counter < 10:
         print (f"{counter} is an even number.")
     # increment counter by 1: counter = counter + 1
     counter += 1
+
+# Input validation
+user_answer = input("Do you like icecream?")
+while user_answer.lower().strip(" ?!,.") not in ["yes", "no", "yeah", "nah"]:
+    user_answer = input("Do you like icecream? (Yes or No)")
