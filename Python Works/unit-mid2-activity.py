@@ -1,4 +1,4 @@
-# Title: Asian Parents' Expectation for the Career of Their Kids
+# Title: Asian Parents' Grade Expectation for Their Kids
 # Author: Eric Zhang
 # Date: Apr 8, 2024
 
@@ -24,4 +24,4 @@ print(number_of_100(user_one_hundreds))
 while user_one_hundreds < 5:
     user_one_hundreds = int(input("How many 100% did you get this week? "))
     print(number_of_100(user_one_hundreds))
-    
+
