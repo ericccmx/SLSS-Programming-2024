@@ -68,6 +68,27 @@ class Pikachu(Pokemon):
 
         return response
 
+class Charmander(Pokemon):
+    """another child class of Pokemon"""
+
+    def __init__(self, name = "Charmander"):
+        super().__init__()
+
+        self.name = name
+        self.id = 4
+        self.type = "Fire"
+        self.actual_cry = "YOUXI"
+    
+    def fire_fang(self, defender: Pokemon) -> str:
+        """Represents the Fire Fang attack."""
+        response = f"{self.name} used Fire Fang. "
+
+        if defender.type.lower() =="water":
+            response = response + "Ooops. It didn't work..."
+        
+        return response
+
+
 
 def main():
     # Create two Pokemon
@@ -123,6 +144,11 @@ def main():
     # Use the thunder method on pokemon_one and pokemon_two (water type)
     print(pikachu_one.thunder(pokemon_one))
     print(pikachu_one.thunder(pokemon_two))
+
+    # Use the fire_fang method on pokemon_one and pokemon_two (water type)
+    charmander_one = Charmander()
+    print(charmander_one.fire_fang(pokemon_one))
+    print(charmander_one.fire_fang(pokemon_two))
 
     # pokemon_one.thunder()   # It will break as thunder() is exclusive to pikachu
 
