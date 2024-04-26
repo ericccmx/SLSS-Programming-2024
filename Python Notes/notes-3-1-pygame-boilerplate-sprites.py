@@ -97,12 +97,28 @@ def start():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-        # Listen for the keyboard space bar to be pressed
+        # Listen for the keyboard to be pressed
             # spawn a new dvdlogo object
             if event.type == pygame.KEYDOWN:
                 # SPACE BAR
                 if pygame.key.get_pressed()[pygame.K_SPACE]:
                     all_sprites.add(Dvdlogo())
+                # press 1 to increase the vel_x of all sprites
+                if pygame.key.get_pressed()[pygame.K_1]:
+                    # iterate over all sprites in the sprite group
+                        # for each sprite, increase the velocity by 10
+                    for sprite in all_sprites:
+                        if sprite.vel_x > 0:
+                            sprite.vel_x += 10
+                        elif sprite.vel_x < 0:
+                            sprite.vel_x -= 10
+                # press 2 to increase the vel_y of all sprites
+                if pygame.key.get_pressed()[pygame.K_2]:
+                    for sprite in all_sprites:
+                        if sprite.vel_y > 0:
+                            sprite.vel_y += 10
+                        elif sprite.vel_y < 0:
+                            sprite.vel_y -= 10 
 
 		# --- Update the world state
         all_sprites.update()
