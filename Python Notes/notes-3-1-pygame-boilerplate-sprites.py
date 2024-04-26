@@ -28,13 +28,13 @@ class Dvdlogo(pygame.sprite.Sprite):
         #   - first position of the inage is at the top left
         self.rect = self.image.get_rect()   
 
-        self.rect.centerx = random.randrange(0, 1280)
-        self.rect.centery = random.randrange(0,720)
+        self.rect.x = random.randrange(0, 1280 - self.rect.width)
+        self.rect.y = random.randrange(0,720 - self.rect.height)
 
         # How much position changes over time
         #   - pixels per tick
-        self.vel_x = 3
-        self.vel_y = 3
+        self.vel_x = random.choice([-4, -2, 2, 4])
+        self.vel_y = random.choice([-4, -2, 2, 4])
 
     def update(self):
         # Updae the position of Dvdlogo
@@ -79,12 +79,15 @@ def start():
     clock = pygame.time.Clock()
 
     dvdlogo = Dvdlogo()
-
+    
     # Move the DVD logo to the middle-ish
     # dvdlogo.rect.centerx = WIDTH // 2   # // always gives an integer
     # dvdlogo.rect.centery = HEIGHT // 2
     all_sprites = pygame.sprite.Group()
-    all_sprites.add(dvdlogo)
+
+    for _ in range (3):
+        all_sprites.add(Dvdlogo())
+
 
     pygame.display.set_caption("DVD Screen Saver")
 
@@ -94,6 +97,12 @@ def start():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
+        # Listen for the keyboard space bar to be pressed
+            # spawn a new dvdlogo object
+            if event.type == pygame.KEYDOWN:
+                # SPACE BAR
+                if pygame.key.get_pressed()[pygame.K_SPACE]:
+                    all_sprites.add(Dvdlogo())
 
 		# --- Update the world state
         all_sprites.update()
