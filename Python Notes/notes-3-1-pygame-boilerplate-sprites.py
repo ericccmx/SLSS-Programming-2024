@@ -37,7 +37,7 @@ class Dvdlogo(pygame.sprite.Sprite):
         self.vel_y = random.choice([-4, -2, 2, 4])
 
     def update(self):
-        # Updae the position of Dvdlogo
+        # Update the position of Dvdlogo
         self.rect.x = self.rect.x + self.vel_x
         self.rect.y += self.vel_y
 
